@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Tortillería El Habillal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #04850b;
+        }
+
+        header {
+            background-color: #ffcc00;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #f9fff2c9;
+        }
+
+        .productos {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contenedor-productos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .producto {
+            border: 4px solid #2b7e05d3;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white;
+            background: #fffb00;
+            width: 260px;
+            cursor: pointer;
+        }
+
+        .producto img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #ffcc00;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+            <a href="index.html">
+              <img src="img/logo_tortilleria.png" alt="Logo_tortilleria" class="logo_tortilleria">
+            </a>
+         
+        <nav>
+            <ul>
+                <div class="tooltip">
+                    <li><a href="productos.html">Productos</a></li>
+                    <span class="tooltiptext">Mira nuestros productos en venta</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="carrito.html">Carrito</a></li>
+                    <span class="tooltiptext">Productos seleccionados</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <span class="tooltiptext">Contactanos</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="manual.html">Manual Técnico</a></li>
+                    <span class="tooltiptext">Manual Tecnico</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="registro.html">Registro</a></li>
+                    <span class="tooltiptext">Registrate</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="inicio.html">Iniciar Sesión</a></li>
+                    <span class="tooltiptext">Inicia Sesion</span>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="contenedor-productos">
+            <div class="producto" onclick="agregarAlCarrito('Tortillas', 20)">
+                <img src="\pagina_web\img\tortillas.jpeg" alt="Tortillas">
+                <p>Tortillas - $20/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Tortillas de Harina', 25)">
+                <img src="img/harina.jpg" alt="Tortillas de Harina">
+                <p>Tortillas de Harina - $25/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Masa para Tamales', 18)">
+                <img src="img/masa.jpg" alt="Masa para Tamales">
+                <p>Masa para Tamales - $18/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Chicharrón', 35)">
+                <img src="img/chicharron.jpeg" alt="Chicharrón">
+                <p>Chicharrón - $35/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Frijoles Chicos', 15)">
+                <img src="img/frijoles_chicos.jpg" alt="Frijoles Chicos">
+                <p>Frijoles Chicos - $15/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Frijoles Grandes', 25)">
+                <img src="img/frijoles_grandes.jpg" alt="Frijoles Grandes">
+                <p>Frijoles Grandes - $25/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Frijoles con Chorizo Chicos', 30)">
+                <img src="img/frijoles_con_chorizo_chicos.jpg" alt="Frijoles con Chorizo Chicos">
+                <p>Frijoles con Chorizo Chicos - $30/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Frijoles con Chorizo Grandes', 40)">
+                <img src="img/frijoles_con_chorizo_grandes.jpg" alt="Frijoles con Chorizo Grandes">
+                <p>Frijoles con Chorizo Grandes - $40/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Salsa Roja', 10)">
+                <img src="img/salsa_roja.jpg" alt="Salsa Roja">
+                <p>Salsa Roja - $10/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Salsa Verde', 10)">
+                <img src="img/salsa_verde.jpeg" alt="Salsa Verde">
+                <p>Salsa Verde - $10/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Espagueti', 12)">
+                <img src="img/espagueti.png" alt="Espagueti">
+                <p>Espagueti - $12/kg</p>
+            </div>
+            <div class="producto" onclick="agregarAlCarrito('Arroz', 12)">
+                <img src="img/arroz.jpg" alt="Arroz">
+                <p>Arroz - $12/kg</p>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        function agregarAlCarrito(nombre, precio) {
+            const producto = carrito.find(p => p.nombre === nombre);
+            if (producto) {
+                producto.cantidad++;
+            } else {
+                carrito.push({ nombre, precio, cantidad: 1 });
+            }
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            alert(`${nombre} agregado al carrito.`);
+        }
+    </script>
+</body>
+</html>
+
+

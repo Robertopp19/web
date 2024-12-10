@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Tortillería El Habillal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #ffcc00;
+            padding: 15px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .boton {
+            padding: 10px;
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #ffcc00;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="img/logo_tortilleria.png" alt="Logo_tortilleria" class="logo_tortilleria">
+          </a>
+        <h1>Iniciar Sesión</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+        </nav>
+    </header>
+
+    <form>
+        <input type="email" placeholder="Correo Electrónico" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit" class="boton">Iniciar Sesión</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Tortillería El Habillal - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+

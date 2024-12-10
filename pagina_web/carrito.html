@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Tortillería El Habillal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #ffcc00;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .boton {
+            padding: 5px 10px;
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .subtotal {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #ffcc00;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">
+            <img src="img/logo_tortilleria.png" alt="Logo_tortilleria" class="logo_tortilleria">
+          </a></h1> <h1>Carrito de Compras</h1>
+        
+        <nav>
+            <ul>
+                <div class="tooltip">
+                    <li><a href="productos.html">Productos</a></li>
+                    <span class="tooltiptext">Mira nuestros productos en venta</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="carrito.html">Carrito</a></li>
+                    <span class="tooltiptext">Productos seleccionados</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <span class="tooltiptext">Contactanos</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="manual.html">Manual Técnico</a></li>
+                    <span class="tooltiptext">Manual Tecnico</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="registro.html">Registro</a></li>
+                    <span class="tooltiptext">Registrate</span>
+                </div>
+                <div class="tooltip">
+                    <li><a href="inicio.html">Iniciar Sesión</a></li>
+                    <span class="tooltiptext">Inicia Sesion</span>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="carrito-body"></tbody>
+    </table>
+
+    <div class="subtotal" id="subtotal"></div>
+
+    <div style="text-align: center; margin: 20px;">
+        <button class="boton" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tortillería El Habillal - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        function mostrarCarrito() {
+            const carritoBody = document.getElementById('carrito-body');
+            const subtotalElement = document.getElementById('subtotal');
+            carritoBody.innerHTML = '';
+            let subtotal = 0;
+
+            carrito.forEach((producto, index) => {
+                const total = producto.precio * producto.cantidad;
+                subtotal += total;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${producto.nombre}</td>
+                    <td>$${producto.precio.toFixed(2)}</td>
+                    <td>
+                        <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${index}, this.value)">
+                    </td>
+                    <td>$${total.toFixed(2)}</td>
+                    <td><button class="boton" onclick="eliminarProducto(${index})">Eliminar</button></td>
+                `;
+                carritoBody.appendChild(row);
+            });
+
+            subtotalElement.innerHTML = `Subtotal: $${subtotal.toFixed(2)}`;
+        }
+
+        function actualizarCantidad(index, cantidad) {
+            if (cantidad < 1) cantidad = 1; // Mantener al menos 1
+            carrito[index].cantidad = parseInt(cantidad);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        function eliminarProducto(index) {
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert("El carrito está vacío. Agrega productos antes de continuar.");
+                return;
+            }
+            const iniciadoSesion = confirm("¿Ya tienes cuenta? Si no, puedes registrarte. Pulsa Aceptar para iniciar sesión, Cancelar para registrarte.");
+            if (iniciadoSesion) {
+                // Aquí puedes redirigir a la página de inicio de sesión
+                window.location.href = "inicio_sesion.html"; 
+            } else {
+                // Aquí puedes redirigir a la página de registro
+                window.location.href = "registro.html"; 
+            }
+        }
+
+        // Mostrar el carrito al cargar la página
+        mostrarCarrito();
+    </script>
+</body>
+</html>
+
+
+
+
